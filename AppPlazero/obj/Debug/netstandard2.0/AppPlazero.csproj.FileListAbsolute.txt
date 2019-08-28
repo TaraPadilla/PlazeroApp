@@ -1,0 +1,17 @@
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\Views\ItemsPage.xaml.g.cs
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\AppPlazero.csproj.CoreCompileInputs.cache
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\AppPlazero.AssemblyInfoInputs.cache
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\AppPlazero.AssemblyInfo.cs
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\bin\Debug\netstandard2.0\AppPlazero.deps.json
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\bin\Debug\netstandard2.0\AppPlazero.dll
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\bin\Debug\netstandard2.0\AppPlazero.pdb
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\AppPlazero.dll
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\AppPlazero.pdb
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\AppPlazero.csprojAssemblyReference.cache
+C:\Users\PC56\source\repos\AppPlazero\AppPlazero\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
