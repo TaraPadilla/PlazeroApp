@@ -8,9 +8,9 @@
        mc:Ignorable="d"
        Title="AppPlazero"
        x:Class="AppPlazero.AppShell">
+    
     <Shell.Resources>
-        <Style x:Key="BaseStyle" 
-               TargetType="Element">
+        <Style x:Key="BaseStyle" TargetType="Element">
             <Setter Property="Shell.BackgroundColor" 
                     Value="#455A64" />
             <Setter Property="Shell.ForegroundColor" 
@@ -33,8 +33,14 @@
     <Shell.FlyoutHeader>
         <controls:FlyoutHeader/>
     </Shell.FlyoutHeader>
-<!--
-    <FlyoutItem Title="Productos"
+
+    <ShellContent Route="Inicio"
+                  Style="{StaticResource AboutShell}"
+                  Title="Inicio"
+                  Icon="info.png"
+                  ContentTemplate="{DataTemplate views:MainPage}" />
+
+    <FlyoutItem Title="Flyout1"
                 FlyoutDisplayOptions="AsMultipleItems">
         <Tab Title="Ingresos"
              Icon="paw.png">
@@ -58,7 +64,7 @@
             </ShellContent>
         </Tab>
     </FlyoutItem>
-  -->  
+  
     <ShellContent Route="Ingresos"
                   Style="{StaticResource AboutShell}"
                   Title="Ingresos"
