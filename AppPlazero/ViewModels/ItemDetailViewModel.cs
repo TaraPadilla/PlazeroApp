@@ -6,10 +6,10 @@ namespace AppPlazero.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public Producto Item { get; set; }
+        public ItemDetailViewModel(Producto item = null)
         {
-            Title = item?.Text;
+            Title = item?.Title;
             Item = item;
         }
     }

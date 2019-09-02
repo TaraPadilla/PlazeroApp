@@ -8,9 +8,6 @@ using AppPlazero.ViewModels;
 
 namespace AppPlazero.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
@@ -26,10 +23,10 @@ namespace AppPlazero.Views
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new Producto
             {
-                Text = "Item 1",
-                Description = "This is an item description."
+                Title = "Item 1",
+                pro_fCantidadAct = 5
             };
 
             viewModel = new ItemDetailViewModel(item);
