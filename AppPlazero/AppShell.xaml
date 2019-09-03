@@ -40,41 +40,41 @@
                   Icon="info.png"
                   ContentTemplate="{DataTemplate views:MainPage}" />
 
-    <FlyoutItem Title="Flyout1"
-                FlyoutDisplayOptions="AsMultipleItems">
-        <Tab Title="Ingresos"
-             Icon="paw.png">
-            <ShellContent Title="Cats"
-                          Icon="cat.png">
-                <views:ItemsPage />
-            </ShellContent>
-        </Tab>
-        <Tab Title="Ventas"
-             Icon="paw.png">
-            <ShellContent Title="Cats"
-                          Icon="cat.png">
-                <views:ItemsPage />
-            </ShellContent>
-        </Tab>
-        <Tab Title="Productos"
-             Icon="paw.png">
-            <ShellContent Title="Cats"
-                          Icon="cat.png">
-                <views:ItemsPage />
-            </ShellContent>
-        </Tab>
-    </FlyoutItem>
-  
     <ShellContent Route="Ingresos"
                   Style="{StaticResource AboutShell}"
                   Title="Ingresos"
                   Icon="info.png"
-                  ContentTemplate="{DataTemplate views:ItemsPage}" />
+                  ContentTemplate="{DataTemplate views:ProductosPage}" />
     
     <ShellContent Route="Ventas"
                   Style="{StaticResource AboutShell}"
                   Title="Ventas"
                   Icon="info.png"
                   ContentTemplate="{DataTemplate views:AboutPage}" />
+
+    <FlyoutItem Title="Flyout1"
+                FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Mantenimiento"
+             Icon="paw.png">
+            <ShellContent Title="Cats"
+                          Icon="cat.png">
+                <views:ProductosPage />
+            </ShellContent>
+        </Tab>
+        <Tab Title="Ventas"
+             Icon="paw.png">
+            <ShellContent Title="Cats"
+                          Icon="cat.png">
+                <views:AboutPage />
+            </ShellContent>
+        </Tab>
+        <Tab Title="Productos"
+             Icon="paw.png">
+            <ShellContent Title="Cats"
+                          Icon="cat.png">
+                <views:AboutPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
 
 </Shell>

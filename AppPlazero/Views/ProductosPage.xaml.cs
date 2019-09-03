@@ -16,7 +16,7 @@ using System.Net.Http;
 
 namespace AppPlazero.Views
 {
-    public partial class ItemsPage : ContentPage
+    public partial class ProductosPage : ContentPage
     {
         ItemsViewModel viewModel;
 
@@ -24,9 +24,10 @@ namespace AppPlazero.Views
         private readonly System.Net.Http.HttpClient _client = new HttpClient(); //Creating a new instance of HttpClient. (Microsoft.Net.Http)
         private ObservableCollection<Producto> _posts; //Refreshing the state of the UI in realtime when updating the ListView's Collection
 
-        public ItemsPage()
+        public ProductosPage()
         {
             InitializeComponent();
+            Title = "Nuevo Titulo";
             BindingContext = viewModel = new ItemsViewModel();
         }
 
@@ -41,12 +42,6 @@ namespace AppPlazero.Views
             // Manually deselect item.
             //ItemsListView.SelectedItem = null;
         }
-
-        void AddItem_Clicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
-        }
-
         protected override async void OnAppearing()
         {
             string content = await _client.GetStringAsync(Url); //Sends a GET request to the specified Uri and returns the response body as a string in an asynchronous operation
@@ -77,6 +72,11 @@ namespace AppPlazero.Views
             //Opcion Dos 
             //string catName = (e.CurrentSelection.FirstOrDefault() as Producto).Title;
             //await Shell.Current.GoToAsync($"catdetails?Title='{catName}'");
+        }
+
+        private void OnAddItemClicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
