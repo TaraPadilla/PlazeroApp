@@ -9,7 +9,7 @@ namespace AppPlazero.ViewModels
         public Producto Item { get; set; }
         public ItemDetailViewModel(Producto item = null)
         {
-            Title = item?.Title;
+            Title = item?.Nombre;
             Item = item;
         }
     }

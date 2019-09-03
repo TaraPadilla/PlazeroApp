@@ -12,16 +12,11 @@ namespace AppPlazero.Models
 
         private string pro_sDescripcion;
         [JsonProperty("pro_sDescripcion")]
-        public string Title
+        public string Nombre
         {
             get => pro_sDescripcion;
-            set
-            {
-                pro_sDescripcion = value;
-                // OnPropertyChanged(); //This notifies the View or ViewModel that the value that a property in the Model has changed and the View needs to be updated.
-            }
+            set => pro_sDescripcion = value;
         }
-
 
         public Int32 pro_fCantidadAct { get; set; }
         public Int32 pro_nidUnidadBase { get; set; }

@@ -25,7 +25,7 @@ namespace AppPlazero.Views
 
             var item = new Producto
             {
-                Title = "Item 1",
+                Nombre = "Item 1",
                 pro_fCantidadAct = 5
             };
 
