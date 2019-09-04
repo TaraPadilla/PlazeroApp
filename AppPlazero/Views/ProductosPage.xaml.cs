@@ -11,7 +11,7 @@ namespace AppPlazero.Views
         public ProductosPage()
         {
             InitializeComponent();
-            Title = "Nuevo Titulo";
+            Title = "Productos";
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -20,9 +20,10 @@ namespace AppPlazero.Views
             if (item == null)
                 return;
         }
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
+            CollectionProductos.ItemsSource = await App.TodoManager.GetTasksAsync();
         }
         async void OnLogoutButtonClicked(object sender, EventArgs e)
         {
