@@ -9,8 +9,11 @@ namespace AppPlazero
     public partial class App : Application
     {
         public static bool IsUserLoggedIn { get; set; }
+        public static ProductoItemManager TodoManager { get; private set; }
         public App()
         {
+            TodoManager = new ProductoItemManager(new RestService());
+
             if (!IsUserLoggedIn)
                 MainPage = new NavigationPage(new LoginPage());
             else
