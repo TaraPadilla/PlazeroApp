@@ -8,12 +8,18 @@
              Title="{Binding Title}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.Nombre}" d:Text="Item name" FontSize="Small"/>
-        <Label Text="Cantidad Actual " FontSize="Medium" />
-        <Label Text="{Binding Item.pro_fCantidadAct}" d:Text="Item description" FontSize="Small"/>
-        <Label Text="Unidad Medida " FontSize="Medium" />
-        <Label Text="{Binding Item.pro_nidUnidadBase}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="Nombre" FontSize="Medium"/>
+        <Entry Text="{Binding Item.Nombre}" Placeholder="Nombre Producto"
+                                            IsTextPredictionEnabled="True"
+                                            MaxLength="20"/>
+        <Label Text="Cantidad" FontSize="Medium" d:Text="Item description"/>
+        <Entry Text="{Binding Item.pro_fCantidadAct}"/>
+        <Label Text="Unidad Medida" FontSize="Medium"/>
+        <Entry Text="{Binding Item.pro_nidUnidadBase}"  
+                              Placeholder="Unidad primaria de medida" 
+                              Keyboard="Numeric" 
+                              MaxLength="1"/>
+         <Button Text="Guardar" Clicked="OnGuardarClicked" />
     </StackLayout>
     
 </ContentPage>

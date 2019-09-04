@@ -10,27 +10,18 @@ namespace AppPlazero.Views
 {
     public partial class ItemDetailPage : ContentPage
     {
-        ItemDetailViewModel viewModel;
-
-        public ItemDetailPage(ItemDetailViewModel viewModel)
-        {
-            InitializeComponent();
-
-            BindingContext = this.viewModel = viewModel;
-        }
-
         public ItemDetailPage()
         {
             InitializeComponent();
+            BindingContext = new Producto();
+        }
 
-            var item = new Producto
-            {
-                Nombre = "Item 1",
-                pro_fCantidadAct = 5
-            };
+        async void OnGuardarClicked(object sender, EventArgs e)
+        {
+            var ProductoItem = (Producto)BindingContext;
+            await App.TodoManager.SaveTaskAsync(ProductoItem, true);
+            await Navigation.PopAsync();
 
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
         }
     }
 }
