@@ -54,7 +54,7 @@
 
     <FlyoutItem Title="Flyout1"
                 FlyoutDisplayOptions="AsMultipleItems">
-        <Tab Title="Mantenimiento"
+        <Tab Title="Productos"
              Icon="paw.png">
             <ShellContent Title="Cats"
                           Icon="cat.png">
@@ -68,7 +68,7 @@
                 <views:AboutPage />
             </ShellContent>
         </Tab>
-        <Tab Title="Productos"
+        <Tab Title="Otros"
              Icon="paw.png">
             <ShellContent Title="Cats"
                           Icon="cat.png">
