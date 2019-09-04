@@ -7,9 +7,6 @@ namespace AppPlazero.Models
 {
     public class Producto
     {
-
-        // public string pro_nidProducto { get; set; }
-
         private string pro_sDescripcion;
         [JsonProperty("pro_sDescripcion")]
         public string Nombre

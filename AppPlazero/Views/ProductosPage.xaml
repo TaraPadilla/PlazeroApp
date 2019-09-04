@@ -8,7 +8,7 @@
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Clicked="OnAddItemClicked">
+        <ToolbarItem Text="Agregar" Clicked="OnAgregarProductoClicked">
             <ToolbarItem.IconImageSource>
                 <OnPlatform x:TypeArguments="ImageSource">
                     <On Platform="Android, UWP" Value="plus.png" />

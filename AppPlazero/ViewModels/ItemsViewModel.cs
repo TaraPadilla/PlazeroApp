@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 using AppPlazero.Models;
-using AppPlazero.Views;
 using System.Net.Http;
 using System.Collections.Generic;
 using Newtonsoft.Json;
