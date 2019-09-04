@@ -1,10 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
 using AppPlazero.Models;
-using AppPlazero.ViewModels;
 
 namespace AppPlazero.Views
 {
