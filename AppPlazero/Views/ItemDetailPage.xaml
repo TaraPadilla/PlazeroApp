@@ -6,20 +6,41 @@
              mc:Ignorable="d"
              x:Class="AppPlazero.Views.ItemDetailPage"
              Title="{Binding Title}">
-
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Nombre" FontSize="Medium"/>
+        <Label Text="Nombre" FontSize="Medium"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
         <Entry Text="{Binding Item.Nombre}" Placeholder="Nombre Producto"
                                             IsTextPredictionEnabled="True"
-                                            MaxLength="20"/>
-        <Label Text="Cantidad" FontSize="Medium" d:Text="Item description"/>
-        <Entry Text="{Binding Item.pro_fCantidadAct}"/>
-        <Label Text="Unidad Medida" FontSize="Medium"/>
-        <Entry Text="{Binding Item.pro_nidUnidadBase}"  
-                              Placeholder="Unidad primaria de medida" 
-                              Keyboard="Numeric" 
-                              MaxLength="1"/>
-         <Button Text="Guardar" Clicked="OnGuardarClicked" />
+                                            MaxLength="20"
+                                            FontSize="Subtitle">
+            <Entry.Keyboard>
+                <Keyboard x:FactoryMethod="Create">
+                    <x:Arguments>
+                        <KeyboardFlags>Suggestions,CapitalizeCharacter</KeyboardFlags>
+                    </x:Arguments>
+                </Keyboard>
+            </Entry.Keyboard>
+        </Entry>
+        <Label Text="Cantidad" FontSize="Medium" d:Text="Item description"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>         
+        <Entry Text="{Binding Item.pro_fCantidadAct}" Placeholder="Cantidad Producto"
+                                                      MaxLength="3"
+                                                      FontSize="Subtitle"
+                                                      Keyboard="Numeric"/>
+        <Label Text="Unidad Medida" FontSize="Medium"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+        <Picker Title="Unidad primaria de medida"
+                SelectedIndexChanged="OnPickerSelectedIndexChanged">
+            <Picker.Items>
+                <x:String>Unidades</x:String>
+                <x:String>Libras</x:String>
+                <x:String>Kilos</x:String>
+                </Picker.Items>
+            </Picker>
+        <Button Text="Guardar" Clicked="OnGuardarClicked" />
     </StackLayout>
-    
+
 </ContentPage>
