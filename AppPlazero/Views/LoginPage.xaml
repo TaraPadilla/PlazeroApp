@@ -14,7 +14,7 @@
             <Entry x:Name="usernameEntry" Placeholder="username" />
             <Label Text="Password" />
             <Entry x:Name="passwordEntry" IsPassword="true" />
-            <Button Text="Login" Clicked="OnLoginButtonClicked" />
+            <Button Text="Ingresar" Clicked="OnLoginButtonClicked" />
             <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>

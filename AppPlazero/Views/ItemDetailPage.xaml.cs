@@ -4,15 +4,21 @@ using AppPlazero.Models;
 
 namespace AppPlazero.Views
 {
+    [QueryProperty("Name", "name")]
     public partial class ItemDetailPage : ContentPage
     {
         Producto ProductoItem;
-        public ItemDetailPage()
+        bool isNewItem;
+
+        public ItemDetailPage(bool isNew = false)
         {
+            if (isNew)
+            {
+                ProductoItem = new Producto();
+                BindingContext = ProductoItem; // new Producto();
+            }            
+            
             InitializeComponent();
-            ProductoItem = new Producto();
-            //ProductoItem = (Producto)BindingContext;
-            BindingContext = ProductoItem; // new Producto();
         }
 
         async void OnGuardarClicked(object sender, EventArgs e)
@@ -30,7 +36,6 @@ namespace AppPlazero.Views
             if (selectedIndex != -1)
             {
                 ProductoItem.pro_nidUnidadBase = selectedIndex;
-                //monkeyNameLabel.Text = picker.Items[selectedIndex];
             }
         }
     }

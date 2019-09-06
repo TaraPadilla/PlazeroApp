@@ -10,7 +10,7 @@
         <Label Text="Nombre" FontSize="Medium"
                FontAttributes="Bold"
                HorizontalOptions="Center"/>
-        <Entry Text="{Binding Item.Nombre}" Placeholder="Nombre Producto"
+        <Entry Text="{Binding Nombre}" Placeholder="Nombre Producto"
                                             IsTextPredictionEnabled="True"
                                             MaxLength="20"
                                             FontSize="Subtitle">
@@ -25,16 +25,16 @@
         <Label Text="Cantidad" FontSize="Medium" d:Text="Item description"
                                FontAttributes="Bold"
                                HorizontalOptions="Center"/>         
-        <Entry Text="{Binding Item.pro_fCantidadAct}" Placeholder="Cantidad Producto"
+        <Entry Text="{Binding pro_fCantidadAct}" Placeholder="Cantidad Producto"
                                                       MaxLength="3"
                                                       FontSize="Subtitle"
                                                       Keyboard="Numeric"/>
         <Label Text="Unidad Medida" FontSize="Medium"
                FontAttributes="Bold"
                HorizontalOptions="Center"/>
-        <Picker Title="Unidad primaria de medida"
-                SelectedIndexChanged="OnPickerSelectedIndexChanged">
-            <Picker.Items>
+        <Picker x:Name="pkUnidad" Title="Unidad primaria de medida" 
+                SelectedIndexChanged="OnPickerSelectedIndexChanged" FontSize="Subtitle" ItemDisplayBinding="{Binding pro_nidUnidadBase}">
+        <Picker.Items>
                 <x:String>Unidades</x:String>
                 <x:String>Libras</x:String>
                 <x:String>Kilos</x:String>

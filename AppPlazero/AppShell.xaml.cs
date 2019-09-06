@@ -17,7 +17,7 @@ namespace AppPlazero
 
         void RegisterRoutes()
         {
-            routes.Add("catdetails", typeof(ItemDetailPage));
+            routes.Add("productdetails", typeof(ItemDetailPage));
         }
     }
 }

@@ -14,12 +14,6 @@ namespace AppPlazero.Views
             Title = "Productos";
         }
 
-        void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-            var item = args.SelectedItem as Producto;
-            if (item == null)
-                return;
-        }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -32,17 +26,21 @@ namespace AppPlazero.Views
             await Navigation.PopAsync();
         }
 
-        void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Opcion Uno funcional de selección
-            var item = e.CurrentSelection.FirstOrDefault() as Producto;
+            var item = (e.CurrentSelection.FirstOrDefault() as Producto);
+
             if (item == null)
                 return;
+
+            await Navigation.PushAsync(new ItemDetailPage {BindingContext = item});
+
         }
 
         async void OnAgregarProductoClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ItemDetailPage());
+            await Navigation.PushAsync(new ItemDetailPage(true));
         }
     }
 }
