@@ -8,7 +8,6 @@ namespace AppPlazero.Views
     public partial class ItemDetailPage : ContentPage
     {
         Producto ProductoItem;
-        bool isNewItem;
 
         public ItemDetailPage(bool isNew = false)
         {
@@ -16,8 +15,8 @@ namespace AppPlazero.Views
             {
                 ProductoItem = new Producto();
                 BindingContext = ProductoItem; // new Producto();
-            }            
-            
+            }
+
             InitializeComponent();
         }
 
@@ -26,17 +25,6 @@ namespace AppPlazero.Views
             await App.TodoManager.SaveTaskAsync(ProductoItem, true);
             await Navigation.PopAsync();
 
-        }
-
-        void OnPickerSelectedIndexChanged(object sender, EventArgs e)
-        {
-            var picker = (Picker)sender;
-            int selectedIndex = picker.SelectedIndex;
-
-            if (selectedIndex != -1)
-            {
-                ProductoItem.pro_nidUnidadBase = selectedIndex;
-            }
         }
     }
 }

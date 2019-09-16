@@ -29,11 +29,8 @@
                                                       MaxLength="3"
                                                       FontSize="Subtitle"
                                                       Keyboard="Numeric"/>
-        <Label Text="Unidad Medida" FontSize="Medium"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"/>
-        <Picker x:Name="pkUnidad" Title="Unidad primaria de medida" 
-                SelectedIndexChanged="OnPickerSelectedIndexChanged" FontSize="Subtitle" ItemDisplayBinding="{Binding pro_nidUnidadBase}">
+       
+        <Picker x:Name="pkUnidad"  FontSize="Subtitle" SelectedIndex="{Binding pro_nidUnidadBase}">
         <Picker.Items>
                 <x:String>Unidades</x:String>
                 <x:String>Libras</x:String>
