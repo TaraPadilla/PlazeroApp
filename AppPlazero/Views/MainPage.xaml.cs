@@ -40,5 +40,15 @@ namespace AppPlazero.Views
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
         }
+
+        async private void desloguearse(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//login");
+            //App.Current.Properties.Remove("UsuarioActivo");
+            //App.Current.MainPage = new NavigationPage(new LoginPage());
+            //Navigation.InsertPageBefore(new LoginPage(), this);
+            //await Navigation.PopAsync();
+            //await Navigation.PopAsync();
+        }
     }
 }

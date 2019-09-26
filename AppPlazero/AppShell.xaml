@@ -5,6 +5,7 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        xmlns:controls="clr-namespace:AppPlazero.Views"
        xmlns:views="clr-namespace:AppPlazero.Views"
+       FlyoutBehavior="Disabled"
        mc:Ignorable="d"
        Title="AppPlazero"
        x:Class="AppPlazero.AppShell">
@@ -30,51 +31,19 @@
         </Style>
     </Shell.Resources>
 
+    <ShellItem x:Name="Lo" Route="login">
+        <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
+    </ShellItem>
+
     <Shell.FlyoutHeader>
         <controls:FlyoutHeader/>
     </Shell.FlyoutHeader>
-
-    <ShellContent Route="Inicio"
+    <!-- Your Pages -->
+    <ShellContent Route="main"
                   Style="{StaticResource AboutShell}"
                   Title="Inicio"
                   Icon="info.png"
                   ContentTemplate="{DataTemplate views:MainPage}" />
 
-    <ShellContent Route="Ingresos"
-                  Style="{StaticResource AboutShell}"
-                  Title="Ingresos"
-                  Icon="info.png"
-                  ContentTemplate="{DataTemplate views:ProductosPage}" />
-    
-    <ShellContent Route="Ventas"
-                  Style="{StaticResource AboutShell}"
-                  Title="Ventas"
-                  Icon="info.png"
-                  ContentTemplate="{DataTemplate views:AboutPage}" />
-
-    <FlyoutItem Title="Flyout1"
-                FlyoutDisplayOptions="AsMultipleItems">
-        <Tab Title="Productos"
-             Icon="paw.png">
-            <ShellContent Title="Cats"
-                          Icon="cat.png">
-                <views:ProductosPage />
-            </ShellContent>
-        </Tab>
-        <Tab Title="Ventas"
-             Icon="paw.png">
-            <ShellContent Title="Cats"
-                          Icon="cat.png">
-                <views:AboutPage />
-            </ShellContent>
-        </Tab>
-        <Tab Title="Otros"
-             Icon="paw.png">
-            <ShellContent Title="Cats"
-                          Icon="cat.png">
-                <views:AboutPage />
-            </ShellContent>
-        </Tab>
-    </FlyoutItem>
 
 </Shell>

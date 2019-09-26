@@ -3,21 +3,19 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using AppPlazero.Services;
 using AppPlazero.Views;
+using AppPlazero.Models;
+using Newtonsoft.Json;
 
 namespace AppPlazero
 {
     public partial class App : Application
     {
-        public static bool IsUserLoggedIn { get; set; }
         public static ProductoItemManager TodoManager { get; private set; }
+        public static string strUsuario;
         public App()
         {
             TodoManager = new ProductoItemManager(new RestService());
-
-            if (!IsUserLoggedIn)
-                MainPage = new NavigationPage(new LoginPage());
-            else
-                Application.Current.MainPage = new AppShell();
+            MainPage = new AppShell();
         }
 
 

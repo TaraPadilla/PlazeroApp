@@ -3,6 +3,7 @@ using System.Linq;
 using Xamarin.Forms;
 
 using AppPlazero.Models;
+using Newtonsoft.Json;
 
 namespace AppPlazero.Views
 {
@@ -21,21 +22,20 @@ namespace AppPlazero.Views
         }
         async void OnLogoutButtonClicked(object sender, EventArgs e)
         {
-            App.IsUserLoggedIn = false;
+            App.strUsuario = null;
+            App.strUsuario = JsonConvert.SerializeObject(App.strUsuario);
+            Application.Current.Properties["UsuarioActivo"] = App.strUsuario;
             Navigation.InsertPageBefore(new LoginPage(), this);
             await Navigation.PopAsync();
         }
 
         async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Opcion Uno funcional de selección
             var item = (e.CurrentSelection.FirstOrDefault() as Producto);
-
             if (item == null)
                 return;
 
             await Navigation.PushAsync(new ItemDetailPage {BindingContext = item});
-
         }
 
         async void OnAgregarProductoClicked(object sender, EventArgs e)

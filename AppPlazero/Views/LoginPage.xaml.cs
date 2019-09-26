@@ -2,18 +2,43 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using AppPlazero.Models;
+using Newtonsoft.Json;
 
 namespace AppPlazero.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+   
     public partial class LoginPage : ContentPage
     {
+        private User UsuarioActivo;
         public LoginPage()
         {
             InitializeComponent();
             usernameEntry.Text = "x";
             passwordEntry.Text = "1";
+            CargarInicio();
         }
+
+        async void CargarInicio()
+        {
+            if (App.Current.Properties.ContainsKey("UsuarioActivo"))
+            {
+                App.strUsuario = App.Current.Properties["UsuarioActivo"] as string;
+                UsuarioActivo = JsonConvert.DeserializeObject<User>(App.strUsuario);
+            }
+            else
+            {
+                App.strUsuario = JsonConvert.SerializeObject(UsuarioActivo);
+                App.Current.Properties.Add("UsuarioActivo", App.strUsuario);
+            }
+
+            if (!(UsuarioActivo is null))
+            {
+                Shell.SetFlyoutBehavior(AppShell.Current.FlyoutBehavior, "false");
+                await Shell.Current.GoToAsync("//main");
+            }
+        }
+
+
         async void OnLoginButtonClicked(object sender, EventArgs e)
         {
             var user = new User
@@ -23,12 +48,15 @@ namespace AppPlazero.Views
             };
 
             var isValid = AreCredentialsCorrect(user);
+
             if (isValid)
             {
-                App.IsUserLoggedIn = true;
-                /* "https://stackoverflow.com/questions/54586621/whats-the-correct-way-to-implement-login-page-in-xamarin-shell" */
-                Application.Current.MainPage = new AppShell();
-                await Navigation.PopAsync();
+                if (Application.Current.Properties.ContainsKey("UsuarioActivo"))
+                {
+                    App.strUsuario = JsonConvert.SerializeObject(user);
+                    Application.Current.Properties["UsuarioActivo"] = App.strUsuario;
+                    await Shell.Current.GoToAsync("//main");
+                }
             }
             else
             {
