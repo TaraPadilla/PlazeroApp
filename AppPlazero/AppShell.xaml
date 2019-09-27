@@ -31,7 +31,7 @@
         </Style>
     </Shell.Resources>
 
-    <ShellItem x:Name="Lo" Route="login">
+    <ShellItem Route="login">
         <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
     </ShellItem>
 
@@ -39,11 +39,27 @@
         <controls:FlyoutHeader/>
     </Shell.FlyoutHeader>
     <!-- Your Pages -->
-    <ShellContent Route="main"
+    <ShellContent Route="main" Style="{StaticResource AboutShell}"
+                  Title="Inicio" Icon="info.png" ContentTemplate="{DataTemplate views:MainPage}"/>
+
+    <ShellContent 
                   Style="{StaticResource AboutShell}"
-                  Title="Inicio"
+                  Title="Ingresos"
                   Icon="info.png"
-                  ContentTemplate="{DataTemplate views:MainPage}" />
+                  ContentTemplate="{DataTemplate views:ProductosPage}" />
 
+    <ShellContent 
+                  Style="{StaticResource AboutShell}"
+                  Title="Carrusel"
+                  Icon="info.png"
+                  ContentTemplate="{DataTemplate views:CarouselPage}" />
 
+    <FlyoutItem Title="Flyout1"
+                FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Acerca de" Icon="paw.png">
+            <ShellContent>
+                <views:AboutPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
 </Shell>

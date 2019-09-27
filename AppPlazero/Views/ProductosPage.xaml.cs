@@ -22,9 +22,10 @@ namespace AppPlazero.Views
         }
         async void OnLogoutButtonClicked(object sender, EventArgs e)
         {
-            App.strUsuario = null;
-            App.strUsuario = JsonConvert.SerializeObject(App.strUsuario);
-            Application.Current.Properties["UsuarioActivo"] = App.strUsuario;
+            Constants.strUsuario = null;
+            Constants.strUsuario = JsonConvert.SerializeObject(Constants.strUsuario);
+            Application.Current.Properties["UsuarioActivo"] = Constants.strUsuario;
+
             Navigation.InsertPageBefore(new LoginPage(), this);
             await Navigation.PopAsync();
         }
@@ -34,7 +35,6 @@ namespace AppPlazero.Views
             var item = (e.CurrentSelection.FirstOrDefault() as Producto);
             if (item == null)
                 return;
-
             await Navigation.PushAsync(new ItemDetailPage {BindingContext = item});
         }
 

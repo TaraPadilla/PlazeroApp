@@ -12,5 +12,8 @@ namespace AppPlazero.Models
         //public static string TodoItemsUrl = BaseAddress + "/api/todoitems/{0}";
         public static string Username = "x";
         public static string Password = "1";
+
+        public static string strUsuario;  //Cadena JSON de usuario.
+        public static User UsuarioActivo; //Usuario logueado en el sistema.
     }
 }
