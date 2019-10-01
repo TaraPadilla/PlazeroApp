@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="AppPlazero.Views.LoginPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Registrarse"/>
+        <ToolbarItem Text="Registrarse" Clicked="OnSignUpButtonClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout VerticalOptions="StartAndExpand">

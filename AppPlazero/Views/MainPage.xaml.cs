@@ -1,5 +1,4 @@
-﻿using AppPlazero.Models;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -10,6 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace AppPlazero.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
         public ObservableCollection<string> Items { get; set; }
@@ -37,17 +37,18 @@ namespace AppPlazero.Views
 
             await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
 
+            //Deselect Item
             ((ListView)sender).SelectedItem = null;
         }
 
         async private void desloguearse(object sender, EventArgs e)
         {
-            AppShell.Current.FlyoutBehavior = FlyoutBehavior.Disabled;
-            if (Application.Current.Properties.ContainsKey("UsuarioActivo"))
-            {
-                Application.Current.Properties.Remove("UsuarioActivo");
-            }
-                await Shell.Current.GoToAsync("//login");
+            await Shell.Current.GoToAsync("//login");
+            //App.Current.Properties.Remove("UsuarioActivo");
+            //App.Current.MainPage = new NavigationPage(new LoginPage());
+            //Navigation.InsertPageBefore(new LoginPage(), this);
+            //await Navigation.PopAsync();
+            //await Navigation.PopAsync();
         }
     }
 }
