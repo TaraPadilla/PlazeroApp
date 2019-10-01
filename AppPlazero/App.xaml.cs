@@ -11,7 +11,6 @@ namespace AppPlazero
     public partial class App : Application
     {
         public static ProductoItemManager TodoManager { get; private set; }
-        public static string strUsuario;
         public App()
         {
             TodoManager = new ProductoItemManager(new RestService());

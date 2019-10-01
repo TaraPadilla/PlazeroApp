@@ -9,12 +9,12 @@ namespace AppPlazero.Views
    
     public partial class LoginPage : ContentPage
     {
-        private User UsuarioActivo;
         public LoginPage()
         {
             InitializeComponent();
             usernameEntry.Text = "x";
             passwordEntry.Text = "1";
+            Constants.UsuarioActivo = new User();
             CargarInicio();
         }
 
@@ -22,18 +22,18 @@ namespace AppPlazero.Views
         {
             if (App.Current.Properties.ContainsKey("UsuarioActivo"))
             {
-                App.strUsuario = App.Current.Properties["UsuarioActivo"] as string;
-                UsuarioActivo = JsonConvert.DeserializeObject<User>(App.strUsuario);
+                Constants.strUsuario = App.Current.Properties["UsuarioActivo"] as string;
+                Constants.UsuarioActivo = JsonConvert.DeserializeObject<User>(Constants.strUsuario);
             }
             else
             {
-                App.strUsuario = JsonConvert.SerializeObject(UsuarioActivo);
-                App.Current.Properties.Add("UsuarioActivo", App.strUsuario);
+                Constants.strUsuario = JsonConvert.SerializeObject(Constants.UsuarioActivo);
+                App.Current.Properties.Add("UsuarioActivo", Constants.strUsuario);
             }
 
-            if (!(UsuarioActivo is null))
+            if (!(Constants.UsuarioActivo.Username is null))
             {
-                Shell.SetFlyoutBehavior(AppShell.Current.FlyoutBehavior, "false");
+                AppShell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
                 await Shell.Current.GoToAsync("//main");
             }
         }
@@ -53,8 +53,9 @@ namespace AppPlazero.Views
             {
                 if (Application.Current.Properties.ContainsKey("UsuarioActivo"))
                 {
-                    App.strUsuario = JsonConvert.SerializeObject(user);
-                    Application.Current.Properties["UsuarioActivo"] = App.strUsuario;
+                    Constants.strUsuario = JsonConvert.SerializeObject(user);
+                    Application.Current.Properties["UsuarioActivo"] = Constants.strUsuario;
+                    AppShell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
                     await Shell.Current.GoToAsync("//main");
                 }
             }
@@ -69,11 +70,6 @@ namespace AppPlazero.Views
         bool AreCredentialsCorrect(User user)
         {
             return user.Username == Constants.Username && user.Password == Constants.Password;
-        }
-
-        private void OnSignUpButtonClicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

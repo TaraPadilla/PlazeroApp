@@ -5,9 +5,11 @@ using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace AppPlazero
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AppShell : Xamarin.Forms.Shell
     {
         Dictionary<string, Type> routes = new Dictionary<string, Type>();
