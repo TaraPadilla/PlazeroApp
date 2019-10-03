@@ -49,7 +49,7 @@ namespace AppPlazero.Views
 
             Constants.UsuarioActivo = await App.TodoManager.ValidarLogin(user);
 
-            if (Constants.UsuarioActivo.Permiso)
+            if (Constants.UsuarioActivo.EsHabilitado())
             {
                 if (Application.Current.Properties.ContainsKey("UsuarioActivo"))
                 {
