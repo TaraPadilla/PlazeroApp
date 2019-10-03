@@ -12,8 +12,8 @@ namespace AppPlazero.Views
         public LoginPage()
         {
             InitializeComponent();
-            usernameEntry.Text = "x";
-            passwordEntry.Text = "1";
+            usernameEntry.Text = "JCAMPOS";
+            passwordEntry.Text = "123456";
             Constants.UsuarioActivo = new User();
             CargarInicio();
         }
@@ -47,9 +47,9 @@ namespace AppPlazero.Views
                 Password = passwordEntry.Text
             };
 
-            var isValid = AreCredentialsCorrect(user);
+            Constants.UsuarioActivo = await App.TodoManager.ValidarLogin(user);
 
-            if (isValid)
+            if (Constants.UsuarioActivo.Permiso)
             {
                 if (Application.Current.Properties.ContainsKey("UsuarioActivo"))
                 {
@@ -65,11 +65,6 @@ namespace AppPlazero.Views
                 await DisplayAlert("Sorry", "Something went wrong in server.", "Ok");
                 passwordEntry.Text = string.Empty;
             }
-        }
-
-        bool AreCredentialsCorrect(User user)
-        {
-            return user.Username == Constants.Username && user.Password == Constants.Password;
         }
     }
 }

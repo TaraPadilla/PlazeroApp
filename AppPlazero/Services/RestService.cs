@@ -24,7 +24,7 @@ namespace AppPlazero.Services
         {
             Items = new List<Producto>();
 
-            var uri = new Uri(string.Format(Constants.TodoItemsUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.TodoItemsUrl+ "ingresos.php", string.Empty));
             try
             {
                 var response = await _client.GetAsync(uri);
@@ -92,5 +92,29 @@ namespace AppPlazero.Services
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
         }
+
+
+        public async Task<User> ValidarLogin(User usuario)
+        {
+            User Usuario1 = new User();
+            var uri = new Uri(string.Format(Constants.TodoItemsUrl + "terceros.php?rh_sUsuario=JCAMPOS&rh_sPassword=123456", string.Empty));
+            try
+            {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    JsonConvert.PopulateObject(content, Usuario1);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Usuario1;
+        }
+
+
     }
 }

@@ -48,11 +48,6 @@
                   Icon="info.png"
                   ContentTemplate="{DataTemplate views:ProductosPage}" />
 
-    <ShellContent 
-                  Style="{StaticResource AboutShell}"
-                  Title="Carrusel"
-                  Icon="info.png"
-                  ContentTemplate="{DataTemplate views:CarouselPage}" />
 
     <FlyoutItem Title="Flyout1"
                 FlyoutDisplayOptions="AsMultipleItems">

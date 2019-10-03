@@ -9,9 +9,9 @@ namespace AppPlazero.Services
     public interface IRestService
     {
         Task<List<Producto>> RefreshDataAsync();
-
         Task SaveTodoItemAsync(Producto item, bool isNewItem);
-
         Task DeleteTodoItemAsync(string id);
+        Task<User> ValidarLogin(User usuario);
+
     }
 }

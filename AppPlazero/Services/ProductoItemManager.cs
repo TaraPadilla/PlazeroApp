@@ -27,5 +27,10 @@ namespace AppPlazero.Services
             return restService.DeleteTodoItemAsync(item.Nombre);
         }
 
+        public Task<User> ValidarLogin(User usuario)
+        {
+            return restService.ValidarLogin(usuario);
+        }
+
     }
 }
