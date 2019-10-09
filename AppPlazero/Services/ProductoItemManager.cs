@@ -1,5 +1,6 @@
 ﻿using AppPlazero.Models;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace AppPlazero.Services
@@ -12,7 +13,7 @@ namespace AppPlazero.Services
             restService = service;
         }
 
-        public Task<List<Producto>> GetTasksAsync()
+        public Task<ObservableCollection<Producto>> GetTasksAsync()
         {
             return restService.RefreshDataAsync();
         }

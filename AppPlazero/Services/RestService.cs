@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
@@ -13,16 +14,16 @@ namespace AppPlazero.Services
     {
         HttpClient _client;
 
-        public List<Producto> Items { get; private set; }
+        public ObservableCollection<Producto> Items { get; private set; }
 
         public RestService()
         {
             _client = new HttpClient();
         }
 
-        public async Task<List<Producto>> RefreshDataAsync()
+        public async Task<ObservableCollection<Producto>> RefreshDataAsync()
         {
-            Items = new List<Producto>();
+            Items = new ObservableCollection<Producto>();
 
             var uri = new Uri(string.Format(Constants.TodoItemsUrl+ "ingresos.php", string.Empty));
             try
@@ -31,7 +32,7 @@ namespace AppPlazero.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Items = JsonConvert.DeserializeObject<List<Producto>>(content);
+                    Items = JsonConvert.DeserializeObject<ObservableCollection<Producto>>(content);
                 }
             }
             catch (Exception ex)
@@ -44,7 +45,7 @@ namespace AppPlazero.Services
 
         public async Task SaveTodoItemAsync(Producto item, bool isNewItem = false)
         {
-            var uri = new Uri(string.Format(Constants.TodoItemsUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.TodoItemsUrl + "ingresos.php", string.Empty));
 
             try
             {

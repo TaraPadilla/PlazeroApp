@@ -19,6 +19,7 @@ namespace AppPlazero.Views
         {
             base.OnAppearing();
             CollectionProductos.ItemsSource = await App.TodoManager.GetTasksAsync();
+
         }
         async void OnLogoutButtonClicked(object sender, EventArgs e)
         {
