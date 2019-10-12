@@ -15,6 +15,7 @@ namespace AppPlazero.Services
         HttpClient _client;
 
         public ObservableCollection<Producto> Items { get; private set; }
+        public ObservableCollection<Income> Incomes { get; private set; }
 
         public RestService()
         {
@@ -25,7 +26,7 @@ namespace AppPlazero.Services
         {
             Items = new ObservableCollection<Producto>();
 
-            var uri = new Uri(string.Format(Constants.TodoItemsUrl+ "ingresos.php", string.Empty));
+            var uri = new Uri(string.Format(Constants.TodoItemsUrl+ "producto.php", string.Empty));
             try
             {
                 var response = await _client.GetAsync(uri);
@@ -116,6 +117,26 @@ namespace AppPlazero.Services
             return Usuario1;
         }
 
+        public async Task<ObservableCollection<Income>> RefreshIncome()
+        {
+            Incomes = new ObservableCollection<Income>();
 
+            var uri = new Uri(string.Format(Constants.TodoItemsUrl + "income.php", string.Empty));
+            try
+            {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Incomes = JsonConvert.DeserializeObject<ObservableCollection<Income>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return Incomes;
+        }
     }
 }

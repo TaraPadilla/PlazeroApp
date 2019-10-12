@@ -13,6 +13,7 @@ namespace AppPlazero.Services
         Task SaveTodoItemAsync(Producto item, bool isNewItem);
         Task DeleteTodoItemAsync(string id);
         Task<User> ValidarLogin(User usuario);
+        Task<ObservableCollection<Income>> RefreshIncome();
 
     }
 }

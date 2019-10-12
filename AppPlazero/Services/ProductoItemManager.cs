@@ -33,5 +33,9 @@ namespace AppPlazero.Services
             return restService.ValidarLogin(usuario);
         }
 
+        public Task<ObservableCollection<Income>> RefreshIncome()
+        {
+            return restService.RefreshIncome();
+        }
     }
 }
