@@ -20,8 +20,8 @@ namespace AppPlazero.Views
 
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
             listIncome.ItemsSource = await App.TodoManager.RefreshIncome();
+            base.OnAppearing();
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
