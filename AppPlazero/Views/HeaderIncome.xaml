@@ -15,15 +15,21 @@
                 <DataTemplate>
                     <Grid Padding="10">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="35" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="8" 
-                               VerticalOptions="End" HorizontalTextAlignment="End"/>
-                        <Label Grid.Row="1"
-                       Text="{Binding refDocumento}"
-                       FontAttributes="Italic"
-                       VerticalOptions="Center" />
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Grid.ColumnSpan="2"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Ingreso" BackgroundColor="Chartreuse"/>
+                        <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding FechaIngreso}"/>
+                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding CostoTotal, StringFormat='{0:C}'}"/>
+                        <Label Grid.Row="2" Grid.ColumnSpan="3" FontAttributes="Italic" 
+                               Text="{Binding Nombre}"
+                               LineBreakMode="WordWrap" MaxLines="2"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
