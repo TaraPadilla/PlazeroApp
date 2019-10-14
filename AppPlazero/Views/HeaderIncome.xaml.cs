@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppPlazero.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace AppPlazero.Views
 
         protected override async void OnAppearing()
         {
-            listIncome.ItemsSource = await App.TodoManager.RefreshIncome();
+            listHeaderIncome.ItemsSource = await App.TodoManager.RefreshIncome();
             base.OnAppearing();
         }
 
@@ -32,6 +33,16 @@ namespace AppPlazero.Views
            
             await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
             ((ListView)sender).SelectedItem = null;
+        }
+
+        private async void cargarDetalle(object sender, SelectionChangedEventArgs e)
+        {
+            var item = (e.CurrentSelection.FirstOrDefault() as Income);
+            if (item == null)
+                return;
+
+            await Navigation.PushAsync(new vwListarDetalle(item));
+        }
         }
     }
 }
