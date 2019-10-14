@@ -8,9 +8,8 @@ namespace AppPlazero.Models
 {
     public class Income 
     {
-
         [JsonProperty("ing_nidIngreso")]
-        private Int32 IdIngreso; 
+        public Int32 IdIngreso { get; set; } 
 
         [JsonProperty("Nombre")]
         public string Nombre { get; set; }
@@ -19,7 +18,7 @@ namespace AppPlazero.Models
         public DateTime FechaIngreso { get; set; }
 
         [JsonProperty("ing_fCostoTotal")]
-        public  float CostoTotal { get; set; }
+        public  double CostoTotal { get; set; }
 
         [JsonProperty("ing_sRefDocumento")]
         public string Documento { get; set; }
@@ -27,5 +26,5 @@ namespace AppPlazero.Models
         //[{"ing_nidIngreso":"1","Nombre":"DAVID CAMPOS","Fecha":"2019-10-11 11:47:29",
         //    "Total":"155500","ing_sRefDocumento":"Recibo de caja"}]
 
-    }
+    }   
 }

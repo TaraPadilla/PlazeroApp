@@ -14,6 +14,7 @@ namespace AppPlazero.Services
         Task DeleteTodoItemAsync(string id);
         Task<User> ValidarLogin(User usuario);
         Task<ObservableCollection<Income>> RefreshIncome();
+        Task<ObservableCollection<detailsIncome>> RefreshListDetailIncome(Income IngresoHeader);
 
     }
 }

@@ -37,5 +37,9 @@ namespace AppPlazero.Services
         {
             return restService.RefreshIncome();
         }
+        public Task<ObservableCollection<detailsIncome>> RefreshListDetailIncome(Income IngresoHeader)
+        {
+           return restService.RefreshListDetailIncome(IngresoHeader);
+        }
     }
 }

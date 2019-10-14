@@ -1,4 +1,5 @@
 ﻿using AppPlazero.Models;
+using AppPlazero.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace AppPlazero.Services
 
         public ObservableCollection<Producto> Items { get; private set; }
         public ObservableCollection<Income> Incomes { get; private set; }
+        public ObservableCollection<detailsIncome> DetailsIncome { get; private set; }
 
         public RestService()
         {
@@ -138,5 +140,29 @@ namespace AppPlazero.Services
 
             return Incomes;
         }
-    }
+
+        public async Task<ObservableCollection<detailsIncome>> RefreshListDetailIncome(Income IngresoHeader)
+        {
+            DetailsIncome = new ObservableCollection<detailsIncome>();
+
+            var uri = new Uri(string.Format(Constants.TodoItemsUrl + "income.php?id=1", string.Empty));
+            try
+            {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    DetailsIncome = JsonConvert.DeserializeObject<ObservableCollection<detailsIncome>>(content);
+                }
+}
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return DetailsIncome;
+          
+        }
+
+}
 }
