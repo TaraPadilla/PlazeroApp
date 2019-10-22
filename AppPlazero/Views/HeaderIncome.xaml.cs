@@ -30,7 +30,7 @@ namespace AppPlazero.Views
             if (e.Item == null)
                 return;
 
-           
+
             await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
             ((ListView)sender).SelectedItem = null;
         }
@@ -43,6 +43,7 @@ namespace AppPlazero.Views
 
             await Navigation.PushAsync(new vwListarDetalle(item));
         }
-        }
+
     }
 }
+
