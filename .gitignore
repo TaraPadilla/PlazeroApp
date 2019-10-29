@@ -2,4 +2,4 @@
 .vs/
 */bin/
 */Resources/
-!Resources/drawable/*
+!/Resources/drawable/
