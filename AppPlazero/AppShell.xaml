@@ -9,27 +9,7 @@
        mc:Ignorable="d"
        Title="AppPlazero"
        x:Class="AppPlazero.AppShell">
-    
-    <Shell.Resources>
-        <Style x:Key="BaseStyle" TargetType="Element">
-            <Setter Property="Shell.BackgroundColor" 
-                    Value="#455A64" />
-            <Setter Property="Shell.ForegroundColor" 
-                    Value="White" />
-            <Setter Property="Shell.TitleColor" 
-                    Value="White" />
-            <Setter Property="Shell.DisabledColor" 
-                    Value="#B4FFFFFF" />
-            <Setter Property="Shell.UnselectedColor" 
-                    Value="#95FFFFFF" />
-        </Style>
-        <Style x:Key="AboutShell" 
-                   TargetType="Element" 
-                   BasedOn="{StaticResource BaseStyle}">
-            <Setter Property="Shell.BackgroundColor" 
-                        Value="#96d1ff" />
-        </Style>
-    </Shell.Resources>
+
 
     <ShellItem Route="login">
         <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
@@ -38,24 +18,22 @@
     <Shell.FlyoutHeader>
         <controls:FlyoutHeader/>
     </Shell.FlyoutHeader>
-    <!-- Your Pages -->
-    <ShellContent Route="main" Style="{StaticResource AboutShell}"
-                  Title="Inicio" Icon="info.png" ContentTemplate="{DataTemplate views:MainPage}"/>
 
     <ShellContent 
-                  Style="{StaticResource AboutShell}"
-                  Title="Productos"
-                  Icon="info.png"
+                  Route="main" Icon="~/Resources/drawable/corporate.png"
+                  Title="Inicio" 
+                  ContentTemplate="{DataTemplate views:Principal}"
+                  />
+    <ShellContent 
+                  Title="Productos" Icon="~/Resources/drawable/products.png"
                   ContentTemplate="{DataTemplate views:ProductosPage}" />
     <ShellContent 
-                  Style="{StaticResource AboutShell}"
-                  Title="Ingresos"
+                  Title="Ingresos" Icon="~/Resources/drawable/incomes.png"
                   ContentTemplate="{DataTemplate views:HeaderIncome}" />
-
-
     <FlyoutItem Title="Flyout1"
                 FlyoutDisplayOptions="AsMultipleItems">
-        <Tab Title="Acerca de" Icon="paw.png">
+        
+        <Tab Title="Acerca de" Icon="~/Resources/drawable/config.png">
             <ShellContent>
                 <views:AboutPage />
             </ShellContent>

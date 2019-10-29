@@ -25,23 +25,15 @@ namespace AppPlazero.Views
             base.OnAppearing();
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if (e.Item == null)
-                return;
-
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-            ((ListView)sender).SelectedItem = null;
-        }
-
         private async void cargarDetalle(object sender, SelectionChangedEventArgs e)
         {
             var item = (e.CurrentSelection.FirstOrDefault() as Income);
+            
             if (item == null)
                 return;
 
             await Navigation.PushAsync(new vwListarDetalle(item));
+            ((CollectionView)sender).SelectedItem = null;
         }
 
     }

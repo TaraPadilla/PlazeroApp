@@ -4,8 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppPlazero.Views.MainPage">
+             x:Class="AppPlazero.Views.Principal"
+             IconImageSource="bear.png">
 
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cerrar Sesión" Clicked="desloguearse" />
     </ContentPage.ToolbarItems>
@@ -14,16 +16,14 @@
             ItemsSource="{Binding Items}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
-    <d:ListView.ItemsSource>
-        <x:Array Type="{x:Type x:String}">
-            <x:String>Item 1</x:String>
-            <x:String>Item 2</x:String>
-            <x:String>Item 3</x:String>
-            <x:String>Item 4</x:String>
-            <x:String>Item 5</x:String>
-        </x:Array>
-    </d:ListView.ItemsSource>
-    <!--Built in Cells-->
+        <d:ListView.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+                <x:String>Noticia 1</x:String>
+                <x:String>Item 2</x:String>
+                <x:String>Item 3</x:String>
+
+            </x:Array>
+        </d:ListView.ItemsSource>
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell Text="{Binding .}" d:Text="{Binding .}" />

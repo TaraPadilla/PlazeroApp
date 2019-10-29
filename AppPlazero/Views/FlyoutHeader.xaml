@@ -2,15 +2,9 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="AppPlazero.Views.FlyoutHeader"
-             HeightRequest="200">
+             HeightRequest="220">
     <Grid BackgroundColor="White">
-        <Image Aspect="AspectFill" 
-               Source="C:\DCP\Plazero\AppPlazero.Android\Resources\drawable\Nano.png" 
-               Opacity="0.6" />
-        <Label Text="Plazero App" 
-               TextColor="White" 
-               FontAttributes="Bold" 
-               HorizontalTextAlignment="Center"
-               VerticalTextAlignment="Center" />
+        <Image Aspect="AspectFit" 
+               Source="~/Resources/drawable/logoPlazero.png"/>
     </Grid>
 </ContentView>

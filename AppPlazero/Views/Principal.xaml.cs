@@ -10,21 +10,19 @@ using Xamarin.Forms.Xaml;
 
 namespace AppPlazero.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class Principal : ContentPage
     {
         public ObservableCollection<string> Items { get; set; }
 
-        public MainPage()
+        public Principal()
         {
             InitializeComponent();
 
             Items = new ObservableCollection<string>
             {
-                "Item 1",
-                "Item 2",
-                "Item 3",
-                "Item 4",
-                "Item 5"
+                "Noticia 1.",
+                "Noticia 2.",
+                "Noticia 3.",
             };
 
             MyListView.ItemsSource = Items;
@@ -35,7 +33,7 @@ namespace AppPlazero.Views
             if (e.Item == null)
                 return;
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+            await DisplayAlert("Info adicional", "Información acerca de la nota", "OK");
 
             ((ListView)sender).SelectedItem = null;
         }

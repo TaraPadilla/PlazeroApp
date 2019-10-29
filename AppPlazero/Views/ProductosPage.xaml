@@ -22,7 +22,7 @@
                         SelectionChanged="OnCollectionViewSelectionChanged"
                         VerticalOptions="Start"
                         SelectionMode="Single"
-                        BackgroundColor="Beige" 
+                        BackgroundColor="Beige"     
                         HorizontalOptions="Center"
                         SelectedItem="LightSkyBlue"
                         EmptyView="No items to display"
@@ -43,9 +43,11 @@
                             <ColumnDefinition Width="60" />
                             <ColumnDefinition Width="60" />
                         </Grid.ColumnDefinitions>
-                        <Image Grid.RowSpan="2" BackgroundColor="Accent"
-                       Source="{Binding Path=Image}"
-                       HeightRequest="60" WidthRequest="60"/>
+                        <Image Grid.RowSpan="2" 
+                               BackgroundColor="Accent"
+                               Source="{Binding Path=Image}"
+                               HeightRequest="60" 
+                               WidthRequest="60"/>
                         <Label Grid.Column="1" Text="{Binding Nombre}" 
                                FontAttributes="Bold" FontSize="8" 
                                VerticalOptions="End" HorizontalTextAlignment="End"/>
