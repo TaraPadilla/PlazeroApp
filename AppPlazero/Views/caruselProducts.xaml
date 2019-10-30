@@ -3,10 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                  xmlns:xaml="http://xamarin.com/schemas/2014/forms"
-              mc:Ignorable="d"
+             mc:Ignorable="d"
              x:Class="AppPlazero.Views.caruselProducts">
-
     <CarouselView x:Name="caruselProductos">
         <CarouselView.ItemTemplate>
             <DataTemplate>
@@ -14,30 +12,26 @@
                     <Frame HasShadow="True"
                        BorderColor="DarkGray"
                        CornerRadius="5"
-                       Margin="5"
+                       Margin="2"
                        VerticalOptions="Start">
                         <StackLayout>
                             <Label Text="{Binding Nombre}"
                                FontAttributes="Bold"
-                               FontSize="8"
+                               FontSize="12"
                                HorizontalOptions="Center"
                                VerticalOptions="Start" />
                             <Image Source="{Binding Path=Image}"
                                Aspect="AspectFill"
-                               HeightRequest="30"
-                               WidthRequest="30"
+                               HeightRequest="40"
+                               WidthRequest="40"
                                HorizontalOptions="Center" />
                             <Label Text="{Binding pro_fCantidadAct}"
                                HorizontalOptions="Center" />
-                            <Label Text="{Binding pro_nidUnidadBase }"
+                            <Label Text="{Binding pro_fCantidadAct}"
                                FontAttributes="Italic"
-                               HorizontalOptions="Center"
-                               MaxLines="5"
-                               LineBreakMode="TailTruncation" />
+                               HorizontalOptions="Center" />
                         </StackLayout>
                     </Frame>
-                    <Label Text="Productos en el ingreso: " />
-                    
                 </StackLayout>
             </DataTemplate>
         </CarouselView.ItemTemplate>
