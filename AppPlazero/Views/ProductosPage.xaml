@@ -8,21 +8,14 @@
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar" Clicked="OnAgregarProductoClicked">
-            <ToolbarItem.IconImageSource>
-                <OnPlatform x:TypeArguments="ImageSource">
-                    <On Platform="Android, UWP" Value="plus.png" />
-                </OnPlatform>
-            </ToolbarItem.IconImageSource>
-        </ToolbarItem>
+        <ToolbarItem Clicked="OnAgregarProductoClicked" Text="Agregar"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout>
         <CollectionView x:Name="CollectionProductos" 
                         SelectionChanged="OnCollectionViewSelectionChanged"
                         VerticalOptions="Start"
-                        SelectionMode="Single"
-                        BackgroundColor="Beige"     
+                        SelectionMode="Single"    
                         HorizontalOptions="Center"
                         SelectedItem="LightSkyBlue"
                         EmptyView="No items to display"
@@ -44,7 +37,6 @@
                             <ColumnDefinition Width="60" />
                         </Grid.ColumnDefinitions>
                         <Image Grid.RowSpan="2" 
-                               BackgroundColor="Accent"
                                Source="{Binding Path=Image}"
                                HeightRequest="60" 
                                WidthRequest="60"/>

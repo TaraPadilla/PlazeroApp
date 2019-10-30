@@ -9,7 +9,6 @@
         <CollectionView x:Name="listHeaderIncome"
                       VerticalOptions="Start"
                       SelectionMode="Single"
-                      BackgroundColor="Azure"
                       HorizontalOptions="Center"
                       SelectionChanged="cargarDetalle">
         <CollectionView.ItemTemplate>
