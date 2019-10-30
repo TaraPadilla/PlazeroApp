@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:xaml="http://xamarin.com/schemas/2014/forms"
+              mc:Ignorable="d"
+             x:Class="AppPlazero.Views.caruselProducts">
+
+    <CarouselView x:Name="caruselProductos">
+        <CarouselView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <Frame HasShadow="True"
+                       BorderColor="DarkGray"
+                       CornerRadius="5"
+                       Margin="5"
+                       VerticalOptions="Start">
+                        <StackLayout>
+                            <Label Text="{Binding Nombre}"
+                               FontAttributes="Bold"
+                               FontSize="8"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start" />
+                            <Image Source="{Binding Path=Image}"
+                               Aspect="AspectFill"
+                               HeightRequest="30"
+                               WidthRequest="30"
+                               HorizontalOptions="Center" />
+                            <Label Text="{Binding pro_fCantidadAct}"
+                               HorizontalOptions="Center" />
+                            <Label Text="{Binding pro_nidUnidadBase }"
+                               FontAttributes="Italic"
+                               HorizontalOptions="Center"
+                               MaxLines="5"
+                               LineBreakMode="TailTruncation" />
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="Productos en el ingreso: " />
+                    
+                </StackLayout>
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
+    </CarouselView>
+</ContentPage>

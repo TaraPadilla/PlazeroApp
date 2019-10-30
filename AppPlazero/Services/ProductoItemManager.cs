@@ -41,5 +41,13 @@ namespace AppPlazero.Services
         {
            return restService.RefreshListDetailIncome(IngresoHeader);
         }
+
+        public Task crearIngreso(Income Ingreso)
+        {
+            return restService.crearIngreso(Ingreso);
+        }
+
+
+
     }
 }

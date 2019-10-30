@@ -46,6 +46,44 @@ namespace AppPlazero.Services
             return Items;
         }
 
+        public async Task crearIngreso(Income Ingreso)
+        {
+            var uri = new Uri(string.Format(Constants.TodoItemsUrl + "ingresos.php", string.Empty));
+
+            try
+            {
+                //var json = JsonConvert.SerializeObject(item);
+                //var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+                if (1==1)//isNewItem)
+                {
+                    //response = await _client.PostAsync(uri, content);
+                }
+                else
+                {
+                    //response = await _client.PutAsync(uri, content);
+                }
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Debug.WriteLine(@"\tTodoItem successfully saved.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+        }
+
+
+
+
+
+
+
+
         public async Task SaveTodoItemAsync(Producto item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.TodoItemsUrl + "ingresos.php", string.Empty));

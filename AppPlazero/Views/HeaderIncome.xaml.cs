@@ -36,6 +36,11 @@ namespace AppPlazero.Views
             ((CollectionView)sender).SelectedItem = null;
         }
 
+        private async void agregarIngreso(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new caruselProducts());
+
+        }
     }
 }
 
