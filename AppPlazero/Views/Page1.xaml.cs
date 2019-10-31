@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace AppPlazero.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Carrusel : CarouselPage
+    public partial class Page1 : ContentPage
     {
-        public Carrusel()   
+        public Page1()
         {
             InitializeComponent();
         }

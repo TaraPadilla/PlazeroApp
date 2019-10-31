@@ -24,7 +24,13 @@
                                Aspect="AspectFill"
                                HeightRequest="40"
                                WidthRequest="40"
-                               HorizontalOptions="Center" />
+                               HorizontalOptions="Center" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Tapped="OnTapGestureRecognizerTapped"
+                                        NumberOfTapsRequired="2" />
+                                </Image.GestureRecognizers>
+                            </Image>
                             <Label Text="{Binding pro_fCantidadAct}"
                                HorizontalOptions="Center" />
                             <Label Text="{Binding pro_fCantidadAct}"
