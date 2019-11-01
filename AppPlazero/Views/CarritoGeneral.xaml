@@ -5,8 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:AppPlazero.Views"
              mc:Ignorable="d"
-             x:Class="AppPlazero.Views.Page1">
+             x:Class="AppPlazero.Views.CarritoGeneral">
     <ContentPage.Content>
-
+        <StackLayout>
+            <Label Text="Agregue los productos del ingreso de mercancía haciendo clic (tap) sobre cada uno. 
+               Deslice para ver más productos." />
+            <local:caruselProducts />
+            <local:detalleCarro/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

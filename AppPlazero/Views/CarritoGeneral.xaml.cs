@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace AppPlazero.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class CarritoGeneral : ContentPage
     {
-        public Page1()
+        public CarritoGeneral()
         {
             InitializeComponent();
         }

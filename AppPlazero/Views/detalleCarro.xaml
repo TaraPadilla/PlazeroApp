@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppPlazero.Views.detalleCarro">
+  <ContentView.Content>
+      <StackLayout>
+          <Label Text="Productos Agregados" />
+            <CollectionView x:Name="ViewDetalleCarro" 
+                        VerticalOptions="Start"
+                        SelectionMode="Single"    
+                        HorizontalOptions="Center"
+                        SelectedItem="LightSkyBlue"
+                        EmptyView="No hay productos agregados"
+                        ItemSizingStrategy="MeasureFirstItem"
+                            BackgroundColor="AliceBlue"
+                            BindingContext="CollectionCarrito">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" 
+                                 Span="4" 
+                                 VerticalItemSpacing="10"
+                                 HorizontalItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Text="{Binding Nombre}" 
+                               FontAttributes="Bold" FontSize="8" 
+                               VerticalOptions="End" HorizontalTextAlignment="End"/>
+                            <Label Grid.Row="1" Grid.Column="1"
+                               Text="{Binding pro_fCantidadAct}"
+                               FontAttributes="Italic"
+                               VerticalOptions="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

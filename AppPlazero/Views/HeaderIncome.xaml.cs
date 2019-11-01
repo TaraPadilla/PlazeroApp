@@ -38,7 +38,7 @@ namespace AppPlazero.Views
 
         private async void agregarIngreso(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new caruselProducts());
+            await Navigation.PushAsync(new CarritoGeneral());
 
         }
     }

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<popup:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppPlazero.Views.PopUp">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="0" Margin="0">
+        <Label Text="Cantidad a Ingresar" FontSize="Small" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Start"/>
+        <Entry Text="{Binding pro_fCantidadAct}" Placeholder="Cantidad Producto"
+                                                      MaxLength="3"
+                                                      FontSize="Small"
+                                                      Keyboard="Numeric"/>
+        <Label Text="Unidad de medida" FontSize="Small" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Start"/>
+        <Picker x:Name="pkUnidad"  FontSize="Subtitle" SelectedIndex="{Binding pro_nidUnidadBase}">
+            <Picker.Items>
+                <x:String>Unidades</x:String>
+                <x:String>Libras</x:String>
+                <x:String>Kilos</x:String>
+            </Picker.Items>
+        </Picker>
+        <Label Text="Costo" FontSize="Small" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Start"/>
+        <Entry  Placeholder="Costo Total"
+                        FontSize="Small"
+                        Keyboard="Numeric"/>
+        <Button Text="Send" BackgroundColor="#1094a1" HeightRequest="40" TextColor="White" Clicked="agregarDetalle">
+        </Button>
+    </StackLayout>
+</popup:PopupPage>

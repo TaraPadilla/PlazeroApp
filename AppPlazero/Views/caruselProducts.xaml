@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AppPlazero.Views.caruselProducts">
-    <CarouselView x:Name="caruselProductos">
-        <CarouselView.ItemTemplate>
+    <CollectionView x:Name="caruselProductos"
+                    SelectionMode="Single"
+                    SelectionChanged="OnCollectionViewSelectionChanged">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical"
+                        Span="3" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout>
-                    <Frame HasShadow="True"
-                       BorderColor="DarkGray"
-                       CornerRadius="5"
-                       Margin="2"
-                       VerticalOptions="Start">
+                    <Frame HasShadow="True" BorderColor="DarkGray" CornerRadius="5" Margin="2" VerticalOptions="Start">
                         <StackLayout>
                             <Label Text="{Binding Nombre}"
                                FontAttributes="Bold"
@@ -25,21 +27,13 @@
                                HeightRequest="40"
                                WidthRequest="40"
                                HorizontalOptions="Center" >
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer
-                                        Tapped="OnTapGestureRecognizerTapped"
-                                        NumberOfTapsRequired="2" />
-                                </Image.GestureRecognizers>
                             </Image>
                             <Label Text="{Binding pro_fCantidadAct}"
-                               HorizontalOptions="Center" />
-                            <Label Text="{Binding pro_fCantidadAct}"
-                               FontAttributes="Italic"
                                HorizontalOptions="Center" />
                         </StackLayout>
                     </Frame>
                 </StackLayout>
             </DataTemplate>
-        </CarouselView.ItemTemplate>
-    </CarouselView>
-</ContentPage>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentView>

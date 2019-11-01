@@ -17,7 +17,7 @@
                         SelectionMode="Single"    
                         HorizontalOptions="Center"
                         SelectedItem="LightSkyBlue"
-                        EmptyView="No items to display"
+                        EmptyView="No hay productos para mostrar."
                         ItemSizingStrategy="MeasureFirstItem">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="2" 

@@ -1,44 +1,57 @@
-﻿using System;
+﻿using AppPlazero.Models;
+using Rg.Plugins.Popup.Animations;
+using Rg.Plugins.Popup.Enums;
+using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace AppPlazero.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class caruselProducts : ContentPage
+    public partial class caruselProducts : ContentView
     {
-        int tapCount = 0;
+        Producto currentItem;
         public caruselProducts()
         {
             InitializeComponent();
+            Cargar();
         }
-
-        protected override async void OnAppearing()
+         
+        public async void Cargar()
         {
-            base.OnAppearing();
             caruselProductos.ItemsSource = await App.TodoManager.GetTasksAsync();
-
         }
-
         void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            //tapCount++;
             var imageSender = (Image)sender;
-            // watch the monkey go from color to black&white!
-            //if (tapCount % 2 == 0)
-            {
-                imageSender.Source = "~/Resources/drawable/corporate.png";
-                tapCount = 0;
-            }
-            //else
-            {
-                //imageSender.Source = "tapped_bw.jpg";
-            }
+            imageSender.Source = "~/Resources/drawable/corporate.png";            
         }
+
+        [Obsolete]
+        async void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            currentItem = (e.CurrentSelection.FirstOrDefault() as Producto);
+
+            if (currentItem == null)
+                return;
+
+            var pr = new PopUp(currentItem);
+            var scaleAnimation = new ScaleAnimation
+            {
+                PositionIn = MoveAnimationOptions.Right,
+                PositionOut = MoveAnimationOptions.Left
+            };
+
+            pr.Animation = scaleAnimation;
+            await PopupNavigation.PushAsync(pr);
+            
+            ((CollectionView)sender).SelectedItem = null;           
+        }       
     }
 }

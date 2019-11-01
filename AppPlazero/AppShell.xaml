@@ -10,7 +10,6 @@
        Title="AppPlazero"
        x:Class="AppPlazero.AppShell">
 
-
     <ShellItem Route="login">
         <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
     </ShellItem>
