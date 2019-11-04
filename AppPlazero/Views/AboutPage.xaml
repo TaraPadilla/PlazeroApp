@@ -44,9 +44,12 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Esta app esta desarrollada en C# y APIs nativas usando la" />
+                                <Span Text="Esta Demo App esta desarrollada en C# y APIs nativas usando la" />
                                 <Span Text=" " />
                                 <Span Text="  Plataforma Xamarin" FontAttributes="Bold" />
+                                <Span Text=", con el objetivo de implementar estrategias JSON y patrones " />
+                                <Span Text=" " />
+                                <Span Text=" básicos de diseño y desarrollo" />
                                 <Span Text="." />
                             </FormattedString.Spans>
                         </FormattedString>
@@ -56,9 +59,9 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Comparte, compila y ejecuta código en " />
-                                <Span Text=" versiones " />
-                                <Span Text="iOS, Android, and Windows" FontAttributes="Bold" />
+                                <Span Text="Desarrollado por David Campos P. " />
+                                <Span Text=" " />
+                                <Span Text="Tecnología en análisis y desarrollo de sistemas." FontAttributes="Bold" />
                                 <Span Text="." />                            
                             </FormattedString.Spans>
                         </FormattedString>

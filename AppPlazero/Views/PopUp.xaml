@@ -4,7 +4,8 @@
     xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AppPlazero.Views.PopUp">
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="0" Margin="0">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="20" Margin="0"
+                 BackgroundColor="WhiteSmoke" HeightRequest="300" WidthRequest="300">
         <Label Text="Cantidad a Ingresar" FontSize="Small" 
                                FontAttributes="Bold"
                                HorizontalOptions="Start"/>
@@ -28,7 +29,7 @@
         <Entry  Placeholder="Costo Total"
                         FontSize="Small"
                         Keyboard="Numeric"/>
-        <Button Text="Send" BackgroundColor="#1094a1" HeightRequest="40" TextColor="White" Clicked="agregarDetalle">
+        <Button Text="Agregar" BackgroundColor="#1094a1" HeightRequest="40" TextColor="White" Clicked="agregarDetalle">
         </Button>
     </StackLayout>
 </popup:PopupPage>
