@@ -77,13 +77,6 @@ namespace AppPlazero.Services
             }
         }
 
-
-
-
-
-
-
-
         public async Task SaveTodoItemAsync(Producto item, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.TodoItemsUrl + "ingresos.php", string.Empty));

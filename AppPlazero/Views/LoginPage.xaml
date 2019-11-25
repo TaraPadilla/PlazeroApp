@@ -10,9 +10,9 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout VerticalOptions="StartAndExpand">
-            <Label Text="Username" />
-            <Entry x:Name="usernameEntry" Placeholder="username" />
-            <Label Text="Password" />
+            <Label Text="Nombre de usuario" />
+            <Entry x:Name="usernameEntry"/>
+            <Label Text="Contraseña" />
             <Entry x:Name="passwordEntry" IsPassword="true" />
             <Button Text="Ingresar" Clicked="OnLoginButtonClicked" />
             <Label x:Name="messageLabel" />
