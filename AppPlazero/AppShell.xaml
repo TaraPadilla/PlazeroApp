@@ -25,7 +25,7 @@
                   />
     <ShellContent 
                   Title="Productos" Icon="~/Resources/drawable/products.png"
-                  ContentTemplate="{DataTemplate views:ProductosPage}" />
+                  ContentTemplate="{DataTemplate views:ProductosPagina}" />
     <ShellContent 
                   Title="Ingresos" Icon="~/Resources/drawable/incomes.png"
                   ContentTemplate="{DataTemplate views:HeaderIncome}" />

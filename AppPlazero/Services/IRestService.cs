@@ -16,7 +16,5 @@ namespace AppPlazero.Services
         Task<ObservableCollection<Income>> RefreshIncome();
         Task<ObservableCollection<detailsIncome>> RefreshListDetailIncome(Income IngresoHeader);
         Task crearIngreso(Income Ingreso);
-
-
     }
 }

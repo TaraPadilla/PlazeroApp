@@ -10,6 +10,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="OnAgregarProductoClicked" Text="Agregar"/>
     </ContentPage.ToolbarItems>
+    <ScrollView>
     <StackLayout>
         <CollectionView x:Name="CollectionProductos" 
                         SelectionChanged="OnCollectionViewSelectionChanged"
@@ -51,5 +52,5 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </StackLayout>
-
+    </ScrollView>
 </ContentPage>

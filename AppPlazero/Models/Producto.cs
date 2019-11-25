@@ -16,12 +16,19 @@ namespace AppPlazero.Models
         public string Nombre
         {
             get => pro_sDescripcion;
-            set => pro_sDescripcion = value;
+            set
+            {
+                if (Nombre != value)
+                {
+                    pro_sDescripcion = value;
+                    OnPropertyChanged("nombre");
+                }
+            }
         }
 
-        public Int32 pro_fCantidadAct { get; set; }
-        public string pro_sEstado { get; set; }
-        public Int32 pro_nidUnidadBase { get; set; }
+        public Int32 Pro_fCantidadAct { get; set; }
+        public string Pro_sEstado { get; set; }
+        public Int32 Pro_nidUnidadBase { get; set; }
 
         private string pro_sImagen;
         [JsonProperty("pro_sProductoRuta")]
@@ -35,8 +42,6 @@ namespace AppPlazero.Models
             set
             {
                 pro_sImagen = value;
-                OnPropertyChanged("ImageBase64");
-                OnPropertyChanged("Image");
             }
         }
 
@@ -56,9 +61,9 @@ namespace AppPlazero.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        protected virtual void OnPropertyChanged(string Propiedad)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(Propiedad));
         }
     }
 }
