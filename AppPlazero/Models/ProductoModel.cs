@@ -5,11 +5,20 @@ namespace AppPlazero.Models
 {
     class ProductoModel : INotifyPropertyChanged
     {
-        private string pro_sDescripcion;
+        private int pro_nidProducto;
+        public int Id
+        {
+            get { return pro_nidProducto; }
+            set { pro_nidProducto = value; }
+        }
+
+
+        private string nombre;
         public string Nombre
         {
-            get { return pro_sDescripcion; }
-            set { pro_sDescripcion = value;
+            get { return nombre; }
+            set {
+                nombre = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Mensaje)); //Cuando modifica el nombre se cambia el mensaje.
                 }

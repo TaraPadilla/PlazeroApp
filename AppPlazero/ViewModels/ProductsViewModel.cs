@@ -12,15 +12,19 @@ namespace AppPlazero.ViewModels
 {
     class ProductsViewModel : ProductoModel
     {
-        public ObservableCollection<ProductoModel> Productos { get; set; }
+        public ObservableCollection<ProductoModel> CollecProductosView { get; set; }
 
-        ProductoServicio servicio = new ProductoServicio();
-        ProductoModel modelo;
+        ProductoServicio servicioView = new ProductoServicio();
+        ProductoModel modeloView;
 
         public ProductsViewModel()
         {
-            Productos = servicio.Consultar();
-            GuardarCommand = new Command(async()=>await Guardar().ConfigureAwait(true));
+            CollecProductosView = servicioView.Consultar();
+            GuardarCommand =   new Command(async()=>await Guardar(),()=> !IsBusy); 
+            ModificarCommand = new Command(async () => await Modificar(), () => !IsBusy);
+            EliminarCommand =  new Command(async () => await Eliminar(), () => !IsBusy);
+            LimpiarCommand =   new Command(Limpiar, () => !IsBusy);
+
         }
 
         public Command GuardarCommand { get; set; }
@@ -30,14 +34,44 @@ namespace AppPlazero.ViewModels
 
         private async Task Guardar()
         {
-            modelo = new ProductoModel()
+            IsBusy = true;
+            Guid g = Guid.NewGuid();
+            modeloView = new ProductoModel()
             {
-                Nombre = Nombre
+                Nombre = this.Nombre
+            };
+            servicioView.Guardar(modeloView);
+            await Task.Delay(2000);
+            IsBusy = false;
+        }
+
+        private async Task Modificar()
+        {
+            IsBusy = true;
+
+            modeloView = new ProductoModel()
+            {
+                Nombre = this.Nombre
             };
 
-            servicio.Guardar(modelo);
-            await Task.Delay(2000).ConfigureAwait(true);
-          
+            servicioView.Modificar(modeloView);
+            await Task.Delay(2000);
+            IsBusy = false;
         }
+
+        private async Task Eliminar()
+        {
+            IsBusy = true;
+            servicioView.Eliminar(Id);
+            await Task.Delay(2000);
+            IsBusy = false;
+        }
+
+        private void Limpiar()
+        {
+            Nombre = "";
+            CantidadActual = 0;
+        }
+
     }
 }

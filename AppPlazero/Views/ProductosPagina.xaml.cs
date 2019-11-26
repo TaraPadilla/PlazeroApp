@@ -19,16 +19,17 @@ namespace AppPlazero.Views
         {
             InitializeComponent();
             BindingContext = contexto;
-            LvPersonas.ItemSelected += LvPersonas_ItemSelected;
+            CollectionProductos.SelectionChanged += OnCollectionViewSelectionChanged;
         }
 
-        private void LvPersonas_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
+            if (e.CurrentSelection != null)
             {
-                ProductoModel modelo = (ProductoModel)e.SelectedItem;
+                ProductoModel modelo = (ProductoModel)e.CurrentSelection;
                 contexto.Nombre = modelo.Nombre;
             }
+
         }
     }
 }

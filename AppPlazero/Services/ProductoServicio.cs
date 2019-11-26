@@ -9,38 +9,36 @@ namespace AppPlazero.Services
 {
     class ProductoServicio
     {
-        public ObservableCollection<ProductoModel> Productos { get; set; }
+        public ObservableCollection<ProductoModel> CollectProductsService { get; set; }
         public ProductoServicio()
-        {
-            if (Productos == null)
-            {
-                Productos = new ObservableCollection<ProductoModel>();
-            }
+        {  if (CollectProductsService == null)
+           {
+             CollectProductsService = new ObservableCollection<ProductoModel>();
+           }
         }
 
         public ObservableCollection<ProductoModel> Consultar()
         {
-            return Productos;
+            return CollectProductsService;
         }
 
         public void Guardar (ProductoModel item)
         {
-            Productos.Add(item);
+            CollectProductsService.Add(item);
         }
         public void Modificar(ProductoModel item)
-        {
-            for (int i = 0; i < Productos.Count; i++)
+        {   for (int i = 0; i < CollectProductsService.Count; i++)
             {
-                if (Productos[i].Nombre == item.Nombre)
+                if (CollectProductsService[i].Id == item.Id)
                 {
-                    Productos[i] = item;
+                    CollectProductsService[i] = item;
                 }
             }
         }
-
-        public void Eliminar(string Nombre)
+        public void Eliminar(int Id)
         {
-            ProductoModel modelo = Productos.FirstOrDefault(p => p.Nombre == Nombre); //Buscar el objeto que corresponde.
+            ProductoModel modelo = CollectProductsService.FirstOrDefault(p => p.Id == Id); //Buscar el objeto que corresponde.
+            CollectProductsService.Remove(modelo);
         }
     }
 }
