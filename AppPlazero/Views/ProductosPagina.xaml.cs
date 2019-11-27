@@ -22,12 +22,20 @@ namespace AppPlazero.Views
             CollectionProductos.SelectionChanged += OnCollectionViewSelectionChanged;
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            contexto.IsBusy = true;
+            CollectionProductos.ItemsSource = await contexto.Consultar();
+            contexto.IsBusy = false;
+        }
+
         private void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.CurrentSelection != null)
             {
-                ProductoModel modelo = (ProductoModel)e.CurrentSelection;
-                contexto.Nombre = modelo.Nombre;
+                string current = (e.CurrentSelection.FirstOrDefault() as ProductoModel)?.Nombre;
+                contexto.Nombre = current;
             }
 
         }

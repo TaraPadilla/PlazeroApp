@@ -6,54 +6,28 @@
              mc:Ignorable="d"
              x:Class="AppPlazero.Views.ProductosPagina">
     <ContentPage.Content>
-        <StackLayout>
-                <Label Text="{Binding Id}"></Label>
+        <ScrollView>
+            <StackLayout>
                 <Entry Text="{Binding Nombre}"></Entry>
                 <Entry Text="{Binding CantidadActual}"></Entry>
                 <Button Text="Guardar" Command="{Binding GuardarCommand}"></Button>
                 <Button Text="Modificar" Command="{Binding ModificarCommand}"></Button>
                 <Button Text="Eliminar" Command="{Binding EliminarCommand}"></Button>
                 <Button Text="Limpiar" Command="{Binding LimpiarCommand}"></Button>
-                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"></ActivityIndicator>
-            <ScrollView>
-                <StackLayout>
-                    <CollectionView x:Name="CollectionProductos" 
-                        ItemsSource="{Binding CollecProductosView}"            
-                        VerticalOptions="Start"
-                        SelectionMode="Single"    
-                        HorizontalOptions="Center"
-                        SelectedItem="LightSkyBlue"
-                        EmptyView="No hay productos para mostrar."
-                        ItemSizingStrategy="MeasureFirstItem">
-                        <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical" Span="2" 
-                                 VerticalItemSpacing="10"
-                                 HorizontalItemSpacing="10"/>
-                        </CollectionView.ItemsLayout>
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Padding="10">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="35"/>
-                                        <RowDefinition Height="35" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="60" />
-                                        <ColumnDefinition Width="60" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="1" Text="{Binding Nombre}" 
-                               FontAttributes="Bold" FontSize="8" 
-                               VerticalOptions="End" HorizontalTextAlignment="End"/>
-                                    <Label Grid.Row="1" Grid.Column="1"
-                               Text="{Binding CantidadActual}"
-                               FontAttributes="Italic"
-                               VerticalOptions="Center" />
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </StackLayout>
-            </ScrollView>
-        </StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="True"></ActivityIndicator>
+                <CollectionView x:Name="CollectionProductos" 
+                                SelectionChanged="OnCollectionViewSelectionChanged"
+                                SelectionMode="Single" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding Id}"></Label>
+                            <Label Text="{Binding Nombre}"></Label>
+                            <Label Text="{Binding CantidadActual}"></Label>
+                            <Label Text="{Binding UnidadBase}"></Label>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

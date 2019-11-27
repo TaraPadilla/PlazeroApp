@@ -1,10 +1,12 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace AppPlazero.Models
 {
     class ProductoModel : INotifyPropertyChanged
     {
+        [JsonProperty("pro_nidProducto")]
         private int pro_nidProducto;
         public int Id
         {
@@ -12,18 +14,19 @@ namespace AppPlazero.Models
             set { pro_nidProducto = value; }
         }
 
-
-        private string nombre;
+        [JsonProperty("pro_sDescripcion")]
+        private string pro_sDescripcion;
         public string Nombre
         {
-            get { return nombre; }
+            get { return pro_sDescripcion; }
             set {
-                nombre = value;
+                pro_sDescripcion = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Mensaje)); //Cuando modifica el nombre se cambia el mensaje.
                 }
         }
 
+        [JsonProperty("pro_fCantidadAct")]
         private int pro_fCantidadAct;
         public int CantidadActual
         {
@@ -33,6 +36,7 @@ namespace AppPlazero.Models
             }
         }
 
+        [JsonProperty("pro_nidUnidadBase")]
         private int pro_nidUnidadBase;
         public int UnidadBase
         {
@@ -43,6 +47,7 @@ namespace AppPlazero.Models
             }
         }
 
+        [JsonProperty("pro_sEstado")]
         private char pro_sEstado;
         public char Estado
         {
@@ -58,7 +63,6 @@ namespace AppPlazero.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nombre));
         }
 
-        private string mensaje;
         public string Mensaje
         {
             get { 
@@ -68,7 +72,7 @@ namespace AppPlazero.Models
         private bool isBusy = false;
         public  bool IsBusy
         {
-            get { return isBusy = false; }
+            get { return isBusy; }
             set { isBusy = value;
                 OnPropertyChanged();
                 }

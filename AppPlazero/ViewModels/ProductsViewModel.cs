@@ -19,13 +19,18 @@ namespace AppPlazero.ViewModels
 
         public ProductsViewModel()
         {
-            CollecProductosView = servicioView.Consultar();
             GuardarCommand =   new Command(async()=>await Guardar(),()=> !IsBusy); 
             ModificarCommand = new Command(async () => await Modificar(), () => !IsBusy);
             EliminarCommand =  new Command(async () => await Eliminar(), () => !IsBusy);
             LimpiarCommand =   new Command(Limpiar, () => !IsBusy);
-
         }
+
+        public async Task<ObservableCollection<ProductoModel>> Consultar()
+        {
+            CollecProductosView = await servicioView.Consultar();
+            return CollecProductosView;
+        }
+
 
         public Command GuardarCommand { get; set; }
         public Command ModificarCommand { get; set; }
