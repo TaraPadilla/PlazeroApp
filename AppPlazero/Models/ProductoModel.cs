@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 
 namespace AppPlazero.Models
@@ -47,6 +49,25 @@ namespace AppPlazero.Models
             }
         }
 
+        [JsonProperty("pro_sProductoRuta")]
+        private string pro_sProductoRuta;
+
+        private string Ruta
+        {
+            get { return pro_sProductoRuta; }
+        }
+
+        private Xamarin.Forms.ImageSource image;
+        public Xamarin.Forms.ImageSource Image
+        {
+            get
+            {
+                image = Xamarin.Forms.ImageSource.FromStream(
+                        () => new MemoryStream(Convert.FromBase64String(Ruta)));
+                return image;
+            }
+        }
+
         [JsonProperty("pro_sEstado")]
         private char pro_sEstado;
         public char Estado
@@ -65,8 +86,8 @@ namespace AppPlazero.Models
 
         public string Mensaje
         {
-            get { 
-                return $"El producto {Nombre} tiene {CantidadActual} en stock.";}
+            get {
+                return $"Existencias: {CantidadActual} - {UnidadBase}.";}
         }
 
         private bool isBusy = false;

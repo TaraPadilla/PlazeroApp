@@ -3,31 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:templates="clr-namespace:AppPlazero.Templates"
              mc:Ignorable="d"
              x:Class="AppPlazero.Views.ProductosPagina">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Entry Text="{Binding Nombre}"></Entry>
-                <Entry Text="{Binding CantidadActual}"></Entry>
-                <Button Text="Guardar" Command="{Binding GuardarCommand}"></Button>
-                <Button Text="Modificar" Command="{Binding ModificarCommand}"></Button>
-                <Button Text="Eliminar" Command="{Binding EliminarCommand}"></Button>
-                <Button Text="Limpiar" Command="{Binding LimpiarCommand}"></Button>
-                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="True"></ActivityIndicator>
-                <CollectionView x:Name="CollectionProductos" 
-                                SelectionChanged="OnCollectionViewSelectionChanged"
-                                SelectionMode="Single" >
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Label Text="{Binding Id}"></Label>
-                            <Label Text="{Binding Nombre}"></Label>
-                            <Label Text="{Binding CantidadActual}"></Label>
-                            <Label Text="{Binding UnidadBase}"></Label>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </StackLayout>
-        </ScrollView>
+        <StackLayout>
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"></ActivityIndicator>
+        
+        <CollectionView x:Name="ViewCollecProductos" 
+                        SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <templates:CellProducto />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

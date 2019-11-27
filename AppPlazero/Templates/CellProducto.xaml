@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppPlazero.Templates.CellProducto">
+    <StackLayout BackgroundColor="Green">
+        <Grid Margin="5" BackgroundColor="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0"/>
+            </Grid.ColumnDefinitions>
+            <BoxView Grid.Column="0" 
+                     Grid.RowSpan="2"
+                     BackgroundColor="AntiqueWhite">
+            </BoxView>
+            <Label Text="{Binding Id}" d:Text="1" Grid.Column="0"
+                   Grid.RowSpan="2"
+                   HorizontalTextAlignment="Center" 
+                   VerticalTextAlignment="Center"
+                   >
+            </Label>
+            <BoxView Grid.Column="1" 
+                     BackgroundColor="BlueViolet">
+            </BoxView>
+            <Label Grid.Column="1" Text="{Binding Nombre}" 
+                       d:Text="PERA"
+                       FontAttributes="Bold" 
+                       Padding="0,10,0,0"
+                       FontSize="Large"
+                       VerticalOptions="StartAndExpand" 
+                       HorizontalTextAlignment="Center"/>
+            <BoxView Grid.Column="1" Grid.Row="1"
+                     BackgroundColor="Aquamarine">
+            </BoxView>
+            <Label Text="Existencias " Grid.Row="1" Grid.Column="1"
+                   HorizontalTextAlignment="Center"
+                   Padding="2"></Label>
+            <Label Grid.Row="1" Grid.Column="1" Padding ="0,20,0,0"
+                                   Text="{Binding Mensaje}"
+                                   d:Text=" 10 Libras"
+                                   FontAttributes="Italic"
+                                   FontSize="Large"
+                                   VerticalOptions="Center" />
+                 <Image Grid.RowSpan="2" Grid.Column="3"
+                        Source="{Binding Image}"           
+                                   d:Source="~/Resources/drawable/products.png"
+                                   HeightRequest="70" 
+                                   WidthRequest="70"/>
+        </Grid>
+    </StackLayout>
+</ContentView>

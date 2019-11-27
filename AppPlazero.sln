@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPlazero.Android", "AppPl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPlazero.iOS", "AppPlazero.iOS\AppPlazero.iOS.csproj", "{6319B382-BED5-4B92-8314-0CD2365D1245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPlazero", "AppPlazero\AppPlazero.csproj", "{3C62DCEF-D83E-4064-BCE8-B7C702F4BDBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppPlazero", "AppPlazero\AppPlazero.csproj", "{3C62DCEF-D83E-4064-BCE8-B7C702F4BDBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

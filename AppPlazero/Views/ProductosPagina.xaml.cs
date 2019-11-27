@@ -1,10 +1,7 @@
 ﻿using AppPlazero.Models;
 using AppPlazero.ViewModels;
-using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,14 +16,14 @@ namespace AppPlazero.Views
         {
             InitializeComponent();
             BindingContext = contexto;
-            CollectionProductos.SelectionChanged += OnCollectionViewSelectionChanged;
+            ViewCollecProductos.SelectionChanged += OnCollectionViewSelectionChanged;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             contexto.IsBusy = true;
-            CollectionProductos.ItemsSource = await contexto.Consultar();
+            ViewCollecProductos.ItemsSource = await contexto.Consultar();
             contexto.IsBusy = false;
         }
 
