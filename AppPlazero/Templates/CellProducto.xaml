@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="AppPlazero.Templates.CellProducto">
     <StackLayout BackgroundColor="Green">
-        <Grid Margin="5" BackgroundColor="WhiteSmoke">
+        <Grid Margin="2" BackgroundColor="WhiteSmoke">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />

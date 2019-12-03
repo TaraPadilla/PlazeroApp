@@ -87,7 +87,7 @@ namespace AppPlazero.Models
         public string Mensaje
         {
             get {
-                return $"Existencias: {CantidadActual} - {UnidadBase}.";}
+                return $"{CantidadActual} {UnidadBase}";}
         }
 
         private bool isBusy = false;

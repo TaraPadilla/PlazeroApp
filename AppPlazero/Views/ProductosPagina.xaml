@@ -9,9 +9,11 @@
     <ContentPage.Content>
         <StackLayout>
             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"></ActivityIndicator>
-        
-        <CollectionView x:Name="ViewCollecProductos" 
+            <CollectionView x:Name="ViewCollecProductos" 
                         SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"></GridItemsLayout>
+                </CollectionView.ItemsLayout>   
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <templates:CellProducto />
